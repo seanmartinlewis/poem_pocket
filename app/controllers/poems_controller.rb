@@ -1,4 +1,5 @@
 class PoemsController < ApplicationController
+  before_action :authenticate_user, only: [:update, :create, :destroy]
   before_action :set_poem, only: [:show, :update, :destroy]
 
   # GET /poems
@@ -46,6 +47,7 @@ class PoemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def poem_params
-      params.require(:poem).permit(:title, :poem, :public, :user_id)
+      # params.require(:poem).permit(:title, :poem, :public, :user_id)
+      params.require(:poem).permit(:title, :poem, :public)
     end
 end
