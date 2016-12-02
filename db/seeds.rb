@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Poem.destroy_all
+
+u = User.create({sub:'google-oauth2|116846214742114904997'})
+
+p = Poem.create({title:'love', poem:'I have fallen and now I am down', public:true, user_id: u.id})

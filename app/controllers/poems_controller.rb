@@ -1,10 +1,10 @@
 class PoemsController < ApplicationController
-  before_action :authenticate_user, only: [:update, :create, :destroy]
+  # before_action :authenticate_user, only: [:update, :create, :destroy]
   before_action :set_poem, only: [:show, :update, :destroy]
 
   # GET /poems
   def index
-    @poems = Poem.all
+    @poems = current_user.poems
 
     render json: @poems
   end
@@ -16,7 +16,7 @@ class PoemsController < ApplicationController
 
   # POST /poems
   def create
-    @poem = Poem.new(poem_params)
+    @poem = current_user.poems.new(poem_params)
 
     if @poem.save
       render json: @poem, status: :created, location: @poem
@@ -41,8 +41,12 @@ class PoemsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # def current_user
+    #   User.first
+    # end
+
     def set_poem
-      @poem = Poem.find(params[:id])
+      @poem = current_user.poems.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

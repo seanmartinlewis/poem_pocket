@@ -17,6 +17,7 @@ gem 'knock', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'dotenv-rails'
+gem 'rack-cors'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
