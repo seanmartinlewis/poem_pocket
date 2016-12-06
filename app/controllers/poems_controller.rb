@@ -1,10 +1,16 @@
 class PoemsController < ApplicationController
-  # before_action :authenticate_user, only: [:update, :create, :destroy]
+  before_action :authenticate_user, except: [:public]
   before_action :set_poem, only: [:show, :update, :destroy]
 
   # GET /poems
   def index
     @poems = current_user.poems
+
+    render json: @poems
+  end
+
+  def public
+    @poems = Poem.where(public: true)
 
     render json: @poems
   end
