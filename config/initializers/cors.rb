@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:3001','http://localhost:3001',"https://powerful-lake-96073.herokuapp.com/",'https://powerful-lake-96073.herokuapp.com','https://seanmartinlewis.github.io/poem-drop/#/','https://seanmartinlewis.github.io/poem-drop','https://seanmartinlewis.github.io/poem-drop/'
+    origins 'http://localhost:3001','http://localhost:3001',"https://powerful-lake-96073.herokuapp.com/",'https://powerful-lake-96073.herokuapp.com','https://seanmartinlewis.github.io/poem-drop/#/','https://seanmartinlewis.github.io/poem-drop','https://seanmartinlewis.github.io/poem-drop/','https://seanmartinlewis.github.io/poem-drop/#/PoemFlow','https://seanmartinlewis.github.io/poem-drop/#/Collections'
 
     resource '*',
       headers: :any,
